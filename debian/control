@@ -1,0 +1,741 @@
+Source: linux-meta
+Section: devel
+Priority: optional
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Standards-Version: 3.9.8
+Build-Depends: dpkg (>= 1.13.19), debhelper (>= 9), gawk,
+Build-Depends-Arch:
+ linux-headers-5.0.0-0,
+ linux-headers-5.0.0-0-generic,
+Vcs-Git: git://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-meta/+git/bionic
+
+Package: linux-source
+Architecture: all
+Depends: ${misc:Depends}, linux-source-${kernel-version}
+Description: Linux kernel source with Ubuntu patches
+ This package will always depend on the latest Linux kernel source code
+ available. The Ubuntu patches have been applied.
+
+Package: linux-crashdump
+Architecture: i386 amd64 arm64 armhf ppc64el s390x
+Depends: ${misc:Depends}, kdump-tools, grub-pc (>= 1.96+20090611-1ubuntu2) [i386 amd64] | grub-efi-ia32 [i386 amd64] | grub-efi-amd64 [i386 amd64] | grub-efi-arm64 [arm64] | grub (>= 0.97-29ubuntu24) [i386 amd64]
+Recommends: apport
+Suggests: crash
+Description: Linux kernel crashdump setup for the latest generic kernel
+ This package installs all the needed infrastructure to get crashdumps from
+ your running system. If you are experiencing kernel crashes that cannot
+ be debugged normally (because the problem is infrequent or panic's the
+ system in such a way as to make information gathering impossible), then
+ you can install this package to automatically enable capture of the
+ vmcore on crashes.
+
+
+Package: linux-headers-generic
+Architecture: i386 amd64 armhf arm64 powerpc ppc64el s390x
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-generic
+Description: Generic Linux kernel headers
+ This package will always depend on the latest generic kernel headers
+ available.
+
+Package: linux-image-generic
+Architecture: i386 amd64 armhf arm64 powerpc ppc64el s390x
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-generic, linux-modules-extra-${kernel-abi-version}-generic [i386 amd64 arm64 powerpc ppc64el s390x], linux-firmware, intel-microcode [amd64 i386], amd64-microcode [amd64 i386]
+Recommends: thermald [i386 amd64]
+Description: Generic Linux kernel image
+ This package will always depend on the latest generic kernel image
+ available.
+
+Package: linux-tools-generic
+Architecture: i386 amd64 armhf arm64 powerpc ppc64el s390x
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-generic
+Description: Generic Linux kernel tools
+ This package will always depend on the latest generic kernel tools
+ available.
+
+Package: linux-cloud-tools-generic
+Architecture: i386 amd64
+Section: kernel
+Provides: linux-cloud-tools
+Depends: ${misc:Depends}, linux-cloud-tools-${kernel-abi-version}-generic
+Description: Generic Linux kernel cloud tools
+ This package will always depend on the latest generic kernel cloud tools
+ available.
+
+Package: linux-generic
+Architecture: i386 amd64 armhf arm64 powerpc ppc64el s390x
+Section: kernel
+Depends: ${misc:Depends}, linux-image-generic (= ${binary:Version}), linux-headers-generic (= ${binary:Version})
+Description: Complete Generic Linux kernel and headers
+ This package will always depend on the latest complete generic Linux kernel
+ and headers.
+
+
+Package: linux-headers-generic-lpae
+Architecture: armhf
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-generic-lpae
+Description: Generic LPAE Linux kernel headers
+ This package will always depend on the latest generic-lpae kernel headers
+ available.
+
+Package: linux-image-generic-lpae
+Architecture: armhf
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-generic-lpae, linux-firmware
+Recommends: thermald [i386 amd64]
+Description: Generic LPAE Linux kernel image
+ This package will always depend on the latest generic-lpae kernel image
+ available.
+
+Package: linux-tools-generic-lpae
+Architecture: armhf
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-generic-lpae
+Description: Generic LPAE Linux kernel tools
+ This package will always depend on the latest generic-lpae kernel tools
+ available.
+
+Package: linux-generic-lpae
+Architecture: armhf
+Section: kernel
+Depends: ${misc:Depends}, linux-image-generic-lpae (= ${binary:Version}), linux-headers-generic-lpae (= ${binary:Version})
+Description: Complete Generic LPAE Linux kernel and headers
+ This package will always depend on the latest complete generic-lpae Linux kernel
+ and headers.
+
+
+Package: linux-headers-lowlatency
+Architecture: i386 amd64
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-lowlatency
+Description: lowlatency Linux kernel headers
+ This package will always depend on the latest lowlatency kernel headers
+ available.
+
+Package: linux-image-lowlatency
+Architecture: i386 amd64
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-lowlatency, linux-firmware, intel-microcode [amd64 i386], amd64-microcode [amd64 i386]
+Recommends: thermald [i386 amd64]
+Description: lowlatency Linux kernel image
+ This package will always depend on the latest lowlatency kernel image
+ available.
+
+Package: linux-tools-lowlatency
+Architecture: i386 amd64
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-lowlatency
+Description: lowlatency Linux kernel tools
+ This package will always depend on the latest lowlatency kernel tools
+ available.
+
+Package: linux-cloud-tools-lowlatency
+Architecture: i386 amd64
+Section: kernel
+Provides: linux-cloud-tools
+Depends: ${misc:Depends}, linux-cloud-tools-${kernel-abi-version}-lowlatency
+Description: lowlatency Linux kernel cloud tools
+ This package will always depend on the latest lowlatency kernel cloud tools
+ available.
+
+Package: linux-lowlatency
+Architecture: i386 amd64
+Section: kernel
+Depends: ${misc:Depends}, linux-image-lowlatency (= ${binary:Version}), linux-headers-lowlatency (= ${binary:Version})
+Description: Complete lowlatency Linux kernel
+ This package will always depend on the latest complete lowlatency Linux kernel
+ available.
+
+
+Package: linux-headers-powerpc-e500mc
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-powerpc-e500mc
+Description: Linux kernel headers on Freescale Power e500mc.
+ This package will always depend on the latest kernel headers available
+ for Freescale Power e500mc support.
+
+Package: linux-image-powerpc-e500mc
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-powerpc-e500mc, linux-firmware
+Description: Linux kernel image on Freescale Power e500mc.
+ This package will always depend on the latest kernel image available
+ for Freescale Power e500mc support.
+
+Package: linux-tools-powerpc-e500mc
+Architecture: powerpc
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-powerpc-e500mc
+Description: Linux kernel tools for Freescale Power e500mc.
+ This package will always depend on the latest e500mc kernel tools
+ available.
+
+Package: linux-powerpc-e500mc
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-image-powerpc-e500mc, linux-headers-powerpc-e500mc
+Description: Complete Linux kernel on Freescale Power e500mc.
+ This package will always depend on the latest complete Linux kernel and headers
+ for Freescale Power e500mc support.
+
+
+Package: linux-headers-powerpc-smp
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-powerpc-smp
+Description: Linux kernel headers on PowerPC SMP
+ This package will always depend on the latest kernel headers available
+ for PowerPC with SMP support.
+ SMP (symmetric multi-processing) is needed if you have multiple processors.
+
+Package: linux-image-powerpc-smp
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-powerpc-smp, linux-firmware
+Description: Linux kernel image on PowerPC SMP.
+ This package will always depend on the latest kernel image available
+ for PowerPC with SMP support.
+ SMP (symmetric multi-processing) is needed if you have multiple processors.
+
+Package: linux-tools-powerpc-smp
+Architecture: powerpc
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-powerpc-smp
+Description: Linux kernel tools for PowerPC SMP.
+ This package will always depend on the latest PowerPC SMP kernel tools
+ available.
+
+Package: linux-powerpc-smp
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-image-powerpc-smp, linux-headers-powerpc-smp
+Description: Complete Linux kernel on PowerPC SMP.
+ This package will always depend on the latest complete Linux kernel and headers
+ for PowerPC with SMP support.
+ SMP (symmetric multi-processing) is needed if you have multiple processors.
+
+
+Package: linux-headers-powerpc64-emb
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-powerpc64-emb
+Description: Linux kernel headers on PowerPC64 Embedded CPUs.
+ This package will always depend on the latest kernel headers available
+ for PowerPC64 Embedded CPUs support.
+
+Package: linux-image-powerpc64-emb
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-powerpc64-emb, linux-firmware
+Description: Linux kernel image on PowerPC64 Embedded CPUs.
+ This package will always depend on the latest kernel image available
+ for PowerPC64 Embedded CPUs support.
+
+Package: linux-tools-powerpc64-emb
+Architecture: powerpc
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-powerpc64-emb
+Description: Linux kernel tools for PowerPC64 Embedded CPUs.
+ This package will always depend on the PowerPC64 Embedded kernel tools
+ available.
+
+Package: linux-powerpc64-emb
+Architecture: powerpc
+Section: kernel
+Depends: ${misc:Depends}, linux-image-powerpc64-emb, linux-headers-powerpc64-emb
+Description: Complete Linux kernel on PowerPC64 Embedded CPUs.
+ This package will always depend on the latest complete Linux kernel and headers
+ for PowerPC64 Embedded CPUs support.
+
+
+Package: linux-headers-powerpc64-smp
+Architecture: powerpc
+Section: oldlibs
+Depends: ${misc:Depends}, linux-headers-generic
+Description: Linux kernel headers on PowerPC64 SMP (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 16.10 through 18.04.
+
+Package: linux-image-powerpc64-smp
+Architecture: powerpc
+Section: oldlibs
+Depends: ${misc:Depends}, linux-image-generic
+Description: Linux kernel image on PowerPC64 SMP (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 16.10 through 18.04.
+
+Package: linux-tools-powerpc64-smp
+Architecture: powerpc
+Section: oldlibs
+Depends: ${misc:Depends}, linux-tools-generic
+Description: Linux kernel tools for PowerPC64 SMP (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 16.10 through 18.04.
+
+Package: linux-powerpc64-smp
+Architecture: powerpc
+Section: oldlibs
+Depends: ${misc:Depends}, linux-generic
+Description: Complete Linux kernel on PowerPC64 SMP (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 16.10 through 18.04.
+
+
+Package: linux-signed-image-generic
+Architecture: amd64
+Section: oldlibs
+Depends: ${misc:Depends}, linux-image-generic
+Description: Signed Generic Linux kernel image (dummy transitional package)
+ This package will always depend on the latest generic kernel image
+ available.  Signed with the Ubuntu EFI key.
+
+Package: linux-signed-generic
+Architecture: amd64
+Section: oldlibs
+Depends: ${misc:Depends}, linux-generic
+Description: Complete Signed Generic Linux kernel and headers (dummy transitional package)
+ This package will always depend on the latest complete generic Linux kernel
+ and headers.  Signed with the Ubuntu EFI key.
+
+Package: linux-signed-image-lowlatency
+Architecture: amd64
+Section: oldlibs
+Depends: ${misc:Depends}, linux-image-lowlatency
+Description: Signed Lowlatency Linux kernel image (dummy transitional package)
+ This package will always depend on the latest lowlatency kernel image
+ available.  Signed with the Ubuntu EFI key.
+
+Package: linux-signed-lowlatency
+Architecture: amd64
+Section: oldlibs
+Depends: ${misc:Depends}, linux-lowlatency
+Description: Complete Signed Lowlatency Linux kernel and headers (dummy transitional package)
+ This package will always depend on the latest complete lowlatency Linux kernel
+ and headers.  Signed with the Ubuntu EFI key.
+
+
+Package: linux-headers-snapdragon
+Architecture: arm64
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-${kernel-abi-version}-snapdragon
+Description: Linux kernel headers for the Qualcomm Snapdragon 410c architecture
+ This package will always depend on the latest kernel headers available
+ for ARM64 Qualcomm Snapdragon 410c systems.
+
+Package: linux-image-snapdragon
+Architecture: arm64
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-snapdragon, linux-firmware
+Description: Linux kernel image for the Qualcomm Snapdragon 410c architecture
+ This package will always depend on the latest kernel image available
+ for ARM64 Qualcomm Snapdragon 410c systems.
+
+Package: linux-tools-snapdragon
+Architecture: arm64
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-snapdragon
+Description: Linux kernel tools for the Qualcomm Snapdragon 410c architecture
+ This package will always depend on the latest kernel tools available
+ for ARM64 Qualcomm Snapdragon 410c systems.
+
+Package: linux-snapdragon
+Architecture: arm64
+Section: kernel
+Depends: ${misc:Depends}, linux-image-snapdragon (= ${binary:Version}), linux-headers-snapdragon (= ${binary:Version})
+Description: Complete Linux kernel and headers for the Qualcomm Snapdragon 410c architecture
+ This package will always depend on the latest complete Linux kernel and
+ headers available for ARM64 Qualcomm Snapdragon 410c systems.
+
+
+Package: linux-headers-generic-hwe-16.04
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-headers-generic
+Description: Generic Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-generic-hwe-16.04
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-generic
+Description: Generic Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-generic-hwe-16.04
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-tools-generic
+Description: Generic Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-generic-hwe-16.04
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-generic
+Description: Generic Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-generic-hwe-16.04
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-generic
+Description: Complete Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-generic-lpae-hwe-16.04
+Architecture: armhf
+Section: oldlibs
+Depends: linux-headers-generic-lpae
+Description: Generic LPAE Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-generic-lpae-hwe-16.04
+Architecture: armhf
+Section: oldlibs
+Depends: linux-image-generic-lpae
+Description: Generic LPAE Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-generic-lpae-hwe-16.04
+Architecture: armhf
+Section: oldlibs
+Depends: linux-tools-generic-lpae
+Description: Generic LPAE Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-generic-lpae-hwe-16.04
+Architecture: armhf
+Section: oldlibs
+Depends: linux-generic-lpae
+Description: Complete Generic LPAE Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-lowlatency-hwe-16.04
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-headers-lowlatency
+Description: lowlatency Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-lowlatency-hwe-16.04
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-image-lowlatency
+Description: lowlatency Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-lowlatency-hwe-16.04
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-tools-lowlatency
+Description: lowlatency Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-lowlatency-hwe-16.04
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-lowlatency
+Description: lowlatency Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-lowlatency-hwe-16.04
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-lowlatency
+Description: Complete lowlatency Linux kernel (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-image-generic-hwe-16.04
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-image-generic
+Description: Signed Generic Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-generic-hwe-16.04
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-generic
+Description: Complete Signed Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-image-lowlatency-hwe-16.04
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-image-lowlatency
+Description: Signed Lowlatency Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-lowlatency-hwe-16.04
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-lowlatency
+Description: Complete Signed Lowlatency Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-virtual-hwe-16.04
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-headers-virtual
+Description: Virtual Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-virtual-hwe-16.04
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-virtual
+Description: Virtual Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-virtual-hwe-16.04
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-tools-virtual
+Description: Virtual Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-virtual-hwe-16.04
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-virtual
+Description: Virtual Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-virtual-hwe-16.04
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-virtual
+Description: Minimal Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-extra-virtual-hwe-16.04
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-extra-virtual
+Description: Extra drivers for Virtual Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+
+Package: linux-headers-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-headers-generic
+Description: Generic Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-generic
+Description: Generic Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-tools-generic
+Description: Generic Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-generic-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-generic
+Description: Generic Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-generic
+Description: Complete Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-headers-generic-lpae
+Description: Generic LPAE Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-image-generic-lpae
+Description: Generic LPAE Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-tools-generic-lpae
+Description: Generic LPAE Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-generic-lpae
+Description: Complete Generic LPAE Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-headers-lowlatency
+Description: lowlatency Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-image-lowlatency
+Description: lowlatency Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-tools-lowlatency
+Description: lowlatency Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-lowlatency
+Description: lowlatency Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-lowlatency
+Description: Complete lowlatency Linux kernel (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-image-generic-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-image-generic
+Description: Signed Generic Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-generic-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-generic
+Description: Complete Signed Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-image-lowlatency-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-image-lowlatency
+Description: Signed Lowlatency Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-lowlatency-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-lowlatency
+Description: Complete Signed Lowlatency Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-headers-virtual
+Description: Virtual Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-virtual
+Description: Virtual Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-tools-virtual
+Description: Virtual Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-virtual-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-virtual
+Description: Virtual Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-virtual
+Description: Minimal Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-extra-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-extra-virtual
+Description: Extra drivers for Virtual Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-virtual
+Architecture: i386 amd64 arm64 powerpc ppc64el s390x
+Section: kernel
+Depends: ${misc:Depends}, linux-headers-generic (= ${binary:Version})
+Description: Virtual Linux kernel headers
+ This package will always depend on linux-headers-generic.
+
+Package: linux-image-virtual
+Architecture: i386 amd64 arm64 powerpc ppc64el s390x
+Section: kernel
+Depends: ${misc:Depends}, linux-image-${kernel-abi-version}-generic
+Description: Virtual Linux kernel image
+ This package will always depend on the latest minimal generic kernel image
+ used for virtual instances.
+
+Package: linux-tools-virtual
+Architecture: i386 amd64 arm64 powerpc ppc64el s390x
+Section: kernel
+Provides: linux-tools
+Depends: ${misc:Depends}, linux-tools-${kernel-abi-version}-generic
+Description: Virtual Linux kernel tools
+ This package will always depend on the latest minimal generic kernel tools
+ used for virtual instances.
+
+Package: linux-cloud-tools-virtual
+Architecture: i386 amd64
+Section: kernel
+Provides: linux-cloud-tools
+Depends: ${misc:Depends}, linux-cloud-tools-${kernel-abi-version}-generic
+Description: Virtual Linux kernel cloud tools
+ This package will always depend on the latest minimal generic kernel cloud tools
+ used for virtual instances.
+
+Package: linux-virtual
+Architecture: i386 amd64 arm64 powerpc ppc64el s390x
+Section: kernel
+Depends: ${misc:Depends}, linux-image-virtual (= ${binary:Version}), linux-headers-virtual (= ${binary:Version})
+Description: Minimal Generic Linux kernel and headers
+ This package will always depend on linux-image-virtual and
+ linux-headers-virtual.
+
+Package: linux-image-extra-virtual
+Architecture: i386 amd64 arm64 powerpc ppc64el s390x
+Section: kernel
+Depends: ${misc:Depends}, linux-image-generic (= ${binary:Version})
+Description: Extra drivers for Virtual Linux kernel image
+ This package will always depend on linux-image-generic.
+

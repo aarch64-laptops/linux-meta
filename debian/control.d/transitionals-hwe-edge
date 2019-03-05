@@ -1,0 +1,167 @@
+Package: linux-headers-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-headers-generic
+Description: Generic Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-generic
+Description: Generic Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-tools-generic
+Description: Generic Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-generic-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-generic
+Description: Generic Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-generic-hwe-16.04-edge
+Architecture: i386 amd64 armhf arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-generic
+Description: Complete Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-headers-generic-lpae
+Description: Generic LPAE Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-image-generic-lpae
+Description: Generic LPAE Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-tools-generic-lpae
+Description: Generic LPAE Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-generic-lpae-hwe-16.04-edge
+Architecture: armhf
+Section: oldlibs
+Depends: linux-generic-lpae
+Description: Complete Generic LPAE Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-headers-lowlatency
+Description: lowlatency Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-image-lowlatency
+Description: lowlatency Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-tools-lowlatency
+Description: lowlatency Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-lowlatency
+Description: lowlatency Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-lowlatency-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-lowlatency
+Description: Complete lowlatency Linux kernel (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-image-generic-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-image-generic
+Description: Signed Generic Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-generic-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-generic
+Description: Complete Signed Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-image-lowlatency-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-image-lowlatency
+Description: Signed Lowlatency Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-signed-lowlatency-hwe-16.04-edge
+Architecture: amd64
+Section: oldlibs
+Depends: linux-signed-lowlatency
+Description: Complete Signed Lowlatency Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-headers-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-headers-virtual
+Description: Virtual Linux kernel headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-virtual
+Description: Virtual Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-tools-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-tools-virtual
+Description: Virtual Linux kernel tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-cloud-tools-virtual-hwe-16.04-edge
+Architecture: i386 amd64
+Section: oldlibs
+Depends: linux-cloud-tools-virtual
+Description: Virtual Linux kernel cloud tools (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-virtual
+Description: Minimal Generic Linux kernel and headers (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
+
+Package: linux-image-extra-virtual-hwe-16.04-edge
+Architecture: i386 amd64 arm64 ppc64el s390x
+Section: oldlibs
+Depends: linux-image-extra-virtual
+Description: Extra drivers for Virtual Linux kernel image (dummy transitional package)
+ Transitional package for upgrades from 16.04 to 18.04 (Xenial to Bionic)
