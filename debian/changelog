@@ -1,4 +1,4 @@
-linux-meta (5.0.0.0.1) bionic; urgency=medium
+linux-meta (5.0.1-050001rc5.20190305161040) bionic; urgency=medium
 
   * AArch64 Laptops: First revision
 
